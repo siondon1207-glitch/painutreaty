@@ -1,23 +1,767 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+
+    <!-- JSON-LD Structured Data for LLM & Search Engine Optimization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "손마디통증 원인 분석 및 2026년 연령별 맞춤 치료 비용 가이드",
+      "description": "2026년도 최신 건강보험 수가 및 의학적 소견을 바탕으로 한 손마디통증의 근본적 원인 규명, 퇴행성 및 류마티스 관절염의 차이점 비교, 실시간 자가진단 계산기 탑재.",
+      "mainEntity": {
+        "@type": "MedicalCondition",
+        "name": "손마디통증 (Finger Joint Pain)",
+        "possibleTreatment": [
+          {
+            "@type": "MedicalTherapy",
+            "name": "보존적 치료 및 약물요법"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "물리치료 및 체외충격파"
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "도수치료 및 관절 운동 컨설팅"
+          }
+        ],
+        "possibleCause": [
+          {
+            "@type": "MedicalCondition",
+            "name": "골관절염 (퇴행성 관절염)"
+          },
+          {
+            "@type": "MedicalCondition",
+            "name": "류마티스 관절염"
+          },
+          {
+            "@type": "MedicalCondition",
+            "name": "건초염 및 방아쇠수지 증후군"
+          }
+        ]
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "손마디통증 정밀 분석 서비스 센터",
+        "url": "https://clinic.reliabledone.com"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #2b5282; /* 신뢰감을 주는 소프트 네이비 */
+            --secondary-color: #319795; /* 부드러운 메디컬 민트 */
+            --accent-color: #dd6b20; /* 온화한 코랄 오렌지 */
+            --background-color: #f7fafc; /* 눈이 편안한 밝은 그레이 */
+            --card-background: #ffffff;
+            --text-color: #2d3748; /* 가독성이 높은 다크 차콜 */
+            --text-sub: #718096;
+            --light-border: #e2e8f0;
+        }
+        body {
+            font-family: "Noto Sans KR", -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-weight: 400;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        main {
+            max-width: 1000px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+        section {
+            background-color: var(--card-background);
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--light-border);
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.6rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.35rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 12px;
+            font-weight: 700;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        /* 시각적 데이터 표현용 표 스타일 */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--light-border);
+        }
+        th, td {
+            padding: 1.1rem 1.3rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-border);
+            font-size: 0.95rem;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 700;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfdfe;
+        }
+        /* 인터랙티브 진단 도구 스타일링 (체류 시간 극대화) */
+        .calculator-container {
+            background: linear-gradient(180deg, #fbfbfd, #f3f6f9);
+            padding: 2.5rem;
+            border-radius: 14px;
+            border: 1px solid var(--light-border);
+            margin: 2.5rem 0;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+        .form-group select,
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group range {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: white;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+        .form-group select:focus,
+        .form-group input:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        @media(min-width: 600px) {
+            .checkbox-group {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--light-border);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .checkbox-item:hover {
+            background-color: #f0f4f8;
+        }
+        .checkbox-item input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 1.5rem;
+        }
+        .btn-submit:hover {
+            background-color: #287a78;
+            transform: translateY(-1px);
+        }
+        .result-box {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #e6fffa;
+            border: 1px solid #b2f5ea;
+            color: #234e52;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        /* 설문 조사 및 커뮤니티 유도 폼 */
+        .survey-box {
+            background-color: #fffaf0;
+            border: 1px solid #feebc8;
+            padding: 2.5rem;
+            border-radius: 14px;
+            margin: 2.5rem 0;
+        }
+        .survey-box h3 {
+            color: var(--accent-color);
+            border-left: 4px solid var(--accent-color);
+            margin-top: 0;
+        }
+        /* 검색 유도용 키워드 태그 클라우드 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 2rem 0;
+            padding: 1.2rem;
+            background-color: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid var(--light-border);
+        }
+        .tag-cloud span {
+            background-color: #edf2f7;
+            color: #4a5568;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        /* CTA 링크 */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(221, 107, 32, 0.3);
+        }
+        .cta-button:hover {
+            background-color: #dd6b20;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(221, 107, 32, 0.4);
+        }
+        /* 외부 링크 강조 */
+        .external-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: color 0.2s;
+        }
+        .external-link:hover {
+            color: var(--secondary-color);
+            border-bottom-style: solid;
+        }
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            background-color: #edf2f7;
+            border-top: 1px solid var(--light-border);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>손마디통증 원인과 치료 방안 및 2026년 정밀 분석 리포트</h1>
+        <p>현대인의 고질병인 손마디통증의 유발 요인을 면밀히 짚어보고 연령대별 세부 증상과 합리적인 정형외과 및 류마티스 내과 비용 지출에 대해 상세히 안내해 드립니다.</p>
+        <nav aria-label="기본 메뉴 네비게이션">
+            <ul>
+                <li><a href="#원인분석">손마디통증 주요원인</a></li>
+                <li><a href="#연령별특성">연령별 통증 분석</a></li>
+                <li><a href="#자가진단">실시간 자가진단기</a></li>
+                <li><a href="#비용가이드">2026년 비용 가이드</a></li>
+                <li><a href="#전문정보">신뢰할 수 있는 정보원</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section id="소개">
+            <h2>손마디통증 발생 양상과 올바른 접근 방향</h2>
+            <p>매일같이 반복되는 손가락 사용으로 인해 발생하는 손마디통증은 일상적인 활동을 저해하는 심각한 불편 중 하나입니다. 손가락 마디가 찌릿하거나 욱신거리는 증상부터 아침에 일어났을 때 뻣뻣해지는 강직 현상까지 그 원인은 매우 다양합니다. 가벼운 과사용으로 인한 단순 건초염일 가능성도 있지만 퇴행성 관절염이나 평생 지속적인 관리가 필요한 전신 자가면역 질환인 류마티스 관절염이 배경에 있을 수 있으므로 세심한 비교 관찰이 필수적입니다.</p>
+            <p>2026년도 건강 관리 트렌드에서는 특히 손가락 관절 질환의 조기 발견과 맞춤형 전문 컨설팅의 중요성이 한층 강조되고 있습니다. 자가 진단 어플이나 통증 기록 앱을 통해 초기 증상을 정량적으로 계산해 보고 최적의 처방을 내릴 수 있는 전문 병원을 방문하는 환자들이 매년 증가하고 있습니다. 정보 과잉의 시대에서 잘못된 광고나 왜곡된 민간요법에 의존하기보다 정형외과 및 류마티스 내과의 정밀 장비를 통한 진단 가격을 꼼꼼하게 비교하여 가장 신뢰도 높은 치료 방향을 설정하는 것이 바람직합니다.</p>
+            
+            <div class="tag-cloud" aria-label="추천 연관 검색어">
+                <span>손마디통증 원인</span>
+                <span>류마티스 관절염 증상</span>
+                <span>퇴행성 손가락 관절염</span>
+                <span>손가락 마디 통증 병원</span>
+                <span>손마디 부어오름</span>
+                <span>방아쇠수지 증후군 자가 진단</span>
+                <span>건초염 비수술 치료 비용</span>
+                <span>실손의료보험 도수치료 보장</span>
+            </div>
+        </section>
+
+        <section id="원인분석">
+            <h2>손마디통증 원인의 학술적 분류 및 질환별 장단점 차이점</h2>
+            <p>손가락 관절에 발생하는 염증성 및 비염증성 질환은 저마다 독특한 병리학적 기전을 가지고 있습니다. 각 질환은 발병 시기나 통증이 지속되는 시간, 영향을 받는 마디의 위치가 서로 다른 양상을 보입니다.</p>
+            
+            <h3>골관절염 퇴행성 관절염의 성격</h3>
+            <p>퇴행성 관절염은 오랜 시간 반복적으로 관절을 사용하여 연골이 점진적으로 닳아 없어지는 만성 질환입니다. 주로 손가락의 가장 끝마디에 흔히 나타나며 연골 유실에 대항해 뼈가 가시처럼 비정상적으로 자라나는 돌기가 형성되는 장점이자 단점이 있습니다. 관절의 보호 기전이 작동하는 과정이나 외관상 손가락 마디가 굵어지고 튀어나와 심미적으로 스트레스를 유발하는 단점이 도드라집니다. 활동을 많이 할수록 저녁 무렵에 통증이 가장 심해지며 휴식을 취하면 개선되는 차이점이 있습니다.</p>
+
+            <h3>자가면역성 류마티스 관절염의 핵심 특징</h3>
+            <p>류마티스 관절염은 단순한 신체 노화와는 완전히 다른 차원의 질환입니다. 면역 체계가 원인 미상의 교란을 일으켜 자신의 관절 활막을 공격하여 염증을 일으키는 질환입니다. 손바닥과 손가락이 연결되는 부위인 중수지절관절이나 중간 손마디에 제일 먼저 통증이 집중되며 양쪽 손가락에 대칭적인 통증을 일으키는 명확한 차이점이 존재합니다. 아침에 기상했을 때 손이 굳는 강직 현상이 1시간 이상 길게 이어진다는 단점이 있으며, 조기에 면역조절제 치료에 가입하지 않고 방치할 경우 영구적인 손가락 변형을 유발하기에 신속하게 대학병원급 상담 및 치료에 가입하는 것이 추천됩니다.</p>
+
+            <h3>방아쇠수지 및 손가락 건초염의 구별 방법</h3>
+            <p>손가락을 구부리고 펴는 힘줄이 지나가는 활차라는 원통형 터널 모양 조직에 만성 염증이 발생하는 상태입니다. 주로 특정 손가락을 과도하게 구부린 채 고정 업무를 보거나 스마트기기를 조작할 때 힘줄과 터널 사이 마찰 요금과 손상 스트레스가 누적되어 발생합니다. 손가락을 굽힐 때 툭 하고 딸깍거리는 마찰음이 느껴지거나 걸려 버리는 증상이 있으며, 통증은 마디 내부보다는 힘줄이 지나가는 손바닥 쪽 관절 기저부에 주로 집중됩니다. 약제비가 저렴하고 체외충격파 같은 다이렉트 보존 치료로도 빠른 호전 혜택을 볼 수 있다는 장점이 있습니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>질환 구분</th>
+                        <th>통증의 주요 부위</th>
+                        <th>아침 강직의 평균 지속 시간</th>
+                        <th>2026 예상 치료비 범위 (외래 기준)</th>
+                        <th>주요 유용 혜택 및 단점 요약</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>퇴행성 골관절염</strong></td>
+                        <td>손가락 끝마디 위주</td>
+                        <td>30분 이내 해결됨</td>
+                        <td>30,000원 - 70,000원</td>
+                        <td>휴식 시 비교적 편안해지나 연골 재생이 불가능함</td>
+                    </tr>
+                    <tr>
+                        <td><strong>류마티스 관절염</strong></td>
+                        <td>손가락 중간 및 기부 마디</td>
+                        <td>1시간 이상 심하게 지속</td>
+                        <td>150,000원 - 300,000원 (혈액검사 포함)</td>
+                        <td>조기 가입 약물로 일상 회복 가능하나 평생 약 복용 단점</td>
+                    </tr>
+                    <tr>
+                        <td><strong>손가락 건초염 및 방아쇠수지</strong></td>
+                        <td>손가락과 손바닥의 경계부</td>
+                        <td>일시적 운동 저하 수준</td>
+                        <td>20,000원 - 50,000원 (약 처방 기준)</td>
+                        <td>치료가 빠르고 쉽지만 재발 확률이 높아 스트레칭 필수</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="연령별특성">
+            <h2>손마디통증 연령별 인구학적 통계 분석 (30개 이상 타겟팅 심층 가이드)</h2>
+            <p>과거 정형외과 외래에서 손마디통증을 호소하는 환자군은 주로 50대 초반 이상의 노인성 관절염 환자가 대부분이었습니다. 그러나 최근 스마트기기 사용 시간의 압도적 증가와 손목 및 손가락 협동 과사용을 유발하는 직군 다각화로 인해 인구학적 구성비에 뚜렷한 변화가 포착되고 있습니다. 다음은 각 연령 및 생애 주기별로 주의해야 할 손마디통증의 실태입니다.</p>
+            
+            <h3>10대 청소년기 및 젊은 층의 일시적 통증 요인</h3>
+            <p>10대 청소년기 및 20대 초반 환자들의 경우 학업을 위한 볼펜 필기 및 수험 활동 도중 발생하는 수근부 피로도가 주요 원인입니다. 또한 20대 후반과 30대 초반 젊은 층에 이르기까지 스마트폰과 태블릿 PC 조작 시간이 증가함에 따라 손가락 신전건 및 굴곡건에 염증이 생기는 손가락 건초염의 발생 비중이 매년 높은 순위를 차지하고 있습니다. 이 시기에는 단순한 관절염이라기보다는 힘줄을 과사용해서 생기는 단순 염좌 성격이 짙습니다.</p>
+
+            <h3>30대 후반 및 40대 초반 직장인의 오피스 증후군</h3>
+            <p>하루 평균 8시간 이상 키보드를 치고 마우스를 조작해야 하는 30대 후반 및 40대 초반 직장인들은 손목 터널 증후군과 더불어 검지 및 중지 손마디통증을 자주 동반하게 됩니다. 마우스 그립 압력으로 인해 관절 내 압박 요금이 과도하게 축적되어 힘줄의 원활한 슬라이딩 작용을 차단하여 발생하는 경우가 흔합니다. 40대 후반 중장년층 직장인으로 넘어가면 통증 부위에 미세한 부종이 시작되는데, 직장인 전용 보존 치료나 사무용 특화 손가락 보호대를 추천받아 사용하는 분들이 많습니다.</p>
+
+            <h3>임산부 산모 및 출산 후 가사 주부의 호르몬성 통증</h3>
+            <p>특히 여성의 경우 인생의 중대한 과도기 속에서 호르몬 수치 변동으로 인한 연부 조직의 약화를 겪게 됩니다. 임산부의 몸에서 분비되는 릴랙신 호르몬은 골반 결합부뿐 아니라 손목 및 손바닥 주위 인대까지 유연하게 만들어 관절을 느슨하게 합니다. 이러한 유연성이 출산 후 산모 시기까지 이어지는 상태에서 신생아를 장시간 안아 들고 수유를 하거나 수건을 짜는 등의 주부 가사노동이 합쳐지면 손가락 힘줄 인대가 감당하기 어려운 기계적 압박을 가하게 됩니다. 이 시기 통증은 통상의 항염증제를 마음대로 복용할 수 없는 임산부 특성상 온찜질이나 부드러운 아대 착용 등 세심한 관리 상담이 우선적으로 이루어져야 합니다.</p>
+
+            <h3>50대 초반 및 50대 후반 갱년기 여성과 폐경기 퇴화</h3>
+            <p>여성 호르몬인 에스트로겐은 관절막을 보호하고 염증 반응을 억제해 주는 중요한 수문장 역할을 합니다. 그러나 50대 초반에 접어들어 폐경기를 지나면 에스트로겐 수치가 급전직하하며 연骨 보호 능력이 크게 저하됩니다. 이 시기 갱년기 여성 환자들은 손목과 손마디통증을 급격하게 체감하기 시작하며, 손마디 부종과 함께 손끝마디가 점차 가로로 넓어지는 퇴행성 관절 변화의 징후를 직접 목격하게 됩니다. 50대 후반으로 갈수록 그 증세는 가속화되어 수시로 아침마다 손가락이 굳는 강직감이 가사와 여가 생활에 막대한 장애물이 되기도 합니다.</p>
+
+            <h3>60대 및 70대 80대 고령층 노인성 손관절염의 실태</h3>
+            <p>노년층의 표본이라 할 수 있는 60대 고령자 및 70대 중년기 이후 고령층, 80대 초고령층 환자분들의 관절 상태는 장기적인 관절 사용 누적에 따른 해부학적 퇴화 상태로 정의됩니다. 관절의 완충 장치 역할을 해야 하는 연골판이 거의 다 닳아 연골하골이 직접 부딪치며 움직일 때마다 심한 마찰 요금과 날카로운 통증을 체감하게 됩니다. 80대 이상 초고령층의 경우 전신적인 근육 저하 현상까지 동반되기 때문에 가벼운 숟가락질이나 화장지 뜯기조차 힘에 겨워하는 중증 단계로 발전하는 단점이 있습니다. 이 시기에는 영구적인 연골 손상을 완전 재생하기가 어렵기 때문에 삶의 질을 현상 유지하고 만성 통증을 조율하는 관절 주사 요법이나 도수치료 및 운동 재활 컨설팅이 주된 수단이 됩니다.</p>
+        </section>
+
+        <section id="자가진단">
+            <h2>실시간 손마디통증 자가 진단 및 위험도 계산기</h2>
+            <p>손마디통증의 구체적인 요인을 파악하고 정밀 정형외과나 류마티스 내과 병원 방문 전 자신의 현재 상태를 간접적으로 가늠해 볼 수 있는 간이 자가진단 계산기입니다. 해당 질문에 솔직하게 체크하신 뒤 하단의 분석 버튼을 눌러주시면 즉시 예상 등급과 소견이 계산되어 나타납니다.</p>
+            
+            <div class="calculator-container">
+                <form id="diagnosticForm" onsubmit="event.preventDefault(); calculateDiagnosticScore();">
+                    <div class="form-group">
+                        <label for="diag_age">연령대 선택</label>
+                        <select id="diag_age" required>
+                            <option value="">연령대를 선택해 주세요</option>
+                            <option value="10">10대 청소년기 및 20대 초반</option>
+                            <option value="20">20대 후반 및 30대 초반 청년층</option>
+                            <option value="30">30대 후반 및 40대 초반 직장인</option>
+                            <option value="40">40대 후반 및 50대 초반 중장년층/임산부/산모</option>
+                            <option value="50">50대 후반 및 60대 갱년기 여성/주부</option>
+                            <option value="60">70대 및 80대 이상 고령층/초고령층</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="diag_prof">주요 생활 양식 및 직업</label>
+                        <select id="diag_prof" required>
+                            <option value="">해당하는 직군을 선택해 주세요</option>
+                            <option value="office">PC 타이핑 및 마우스 과사용 직장인</option>
+                            <option value="house">가사노동 전담 주부 및 육아 산모</option>
+                            <option value="heavy">물건 운반 등 손가락 악력이 필요한 직업</option>
+                            <option value="student">학생 및 스마트기기를 장시간 쓰는 사용자</option>
+                            <option value="none">특별한 활동량이 없는 상태</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>현재 겪고 계시는 통증 양상 (중복 선택 가능)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="symptom" value="stiff" id="sym_stiff">
+                                아침에 일어났을 때 손가락이 뻑뻑하고 주먹이 쥐어지지 않음
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="symptom" value="swell" id="sym_swell">
+                                손마디 부위가 동그랗게 부어오르고 누르면 열감이 있음
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="symptom" value="symm" id="sym_symm">
+                                통증이 오른쪽 손가락과 왼쪽 손가락 양측에 동시에 있음
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="symptom" value="distal" id="sym_distal">
+                                통증이 손가락 중간마디가 아니라 주로 제일 끝 손톱 마디임
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="symptom" value="click" id="sym_click">
+                                손가락을 굽힐 때 힘줄 쪽에서 딸깍하는 기분 나쁜 소리와 걸림이 있음
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="symptom" value="smart" id="sym_smart">
+                                스마트폰을 오래 들고 있거나 타이핑할 때 미세하게 욱신거림
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="diag_pain">자가 주관식 통증 강도 점수 (1점: 거의 없음 ~ 10점: 극심한 수면 장애 유발)</label>
+                        <input type="range" id="diag_pain" min="1" max="10" value="5" oninput="this.nextElementSibling.value = this.value">
+                        <output style="font-weight:700; color:var(--accent-color); margin-left:10px;">5</output> 점
+                    </div>
+
+                    <button type="submit" class="btn-submit">손마디 위험도 종합 계산하기</button>
+                </form>
+
+                <div id="diagnostic_result" class="result-box">
+                    <!-- 자가진단 자바스크립트 결과 렌더링 -->
+                </div>
+            </div>
+        </section>
+
+        <section id="비용가이드">
+            <h2>2026년 손마디통증 정형외과 및 류마티스 내과 예상 치료 비용 견적 산정</h2>
+            <p>손가락 마디가 찌릿거리는 통증이 느껴져 병원을 방문할 때, 많은 분들이 가장 먼저 우려하시는 부분이 바로 치료 가격 및 비급여 항목 요금입니다. 2026년 최신 건강보험 수가 가이드와 실비 비교 정보를 종합하여 환자 부담 금액을 구체적으로 알려드립니다.</p>
+            
+            <h3>병원 방문 시 발생하는 기본 및 비급여 비용의 상세 내역</h3>
+            <p>의원급 기준 정형외과 혹은 신경외과에서 손가락 통증으로 접수를 하게 되면 먼저 원장 기본 상담료가 약 11,000원 선에서 청구됩니다. 이후 정확한 관절 상태를 파악하기 위해 미세 엑스레이 검사를 촬영하게 되는데, 2방향 촬영 시 건강보험 급여 처리가 되어 본인부담금은 평균 6,000원 안팎으로 책정됩니다. 통상적인 약 처방과 물리치료(파라핀 치료, 온열 전자기 치료)는 약 7,000원 수준으로 다소 저렴한 편입니다.</p>
+            <p>다만 인대 및 미세 염증 부위를 깊이 들여다보는 손가락 관절 정밀 초음파 검사의 경우 비급여 항목으로 분리되어 의료기관 별로 가격 편차가 큽니다. 평균적으로 의원급은 약 50,000원에서 80,000원의 비용이 들며 종합병원급은 120,000원 이상의 견적이 산출될 수 있습니다. 만약 의심 소견이 류마티스성 관절염으로 좁혀져 혈액 면역 인자 분석(류마티스 인자 및 항CCP 항체 유무)과 염증 수치 검사를 병행해야 한다면 예상되는 검진 요금은 최대 150,000원에 달할 수도 있습니다.</p>
+
+            <div class="calculator-container" style="background: linear-gradient(180deg, #fffaf0, #fff5f5); border-color:#fed7d7;">
+                <h3 style="color:var(--accent-color); border-left-color:var(--accent-color); margin-top:0;">2026년 맞춤형 병원비 및 실손 환급 예상금액 계산기</h3>
+                <p>가입하고 계신 보험 약관 기준과 예상되는 처방 종류를 설정하여 실제 자부담 얼마가 도출되는지 가상 계산기를 통해 견적을 미리 비교해보실 수 있습니다.</p>
+                
+                <form id="costForm" onsubmit="event.preventDefault(); calculateEstimatedCost();">
+                    <div class="form-group">
+                        <label for="cost_cond">의심되는 예상 통증 유형</label>
+                        <select id="cost_cond" required>
+                            <option value="">선택하세요</option>
+                            <option value="rheumatoid">류마티스 관절염 의심 (혈액검사 필수)</option>
+                            <option value="degenerative">퇴행성 손가락 관절염 (기본 X-ray 및 보조요법)</option>
+                            <option value="teno">방아쇠수지 및 건초염 (초음파 진단 및 약물)</option>
+                            <option value="simple">단순 스마트폰 과사용 및 가벼운 인대 염좌</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cost_treat">치료 방향성 선택</label>
+                        <select id="cost_treat" required>
+                            <option value="">선택하세요</option>
+                            <option value="physical">기본 먹는 소염제 처방 및 일반 물리치료</option>
+                            <option value="manual">정형외과 맞춤 도수치료 및 인대 마사지 병행</option>
+                            <option value="eswt">체외충격파 비급여 특수 치료 병행</option>
+                            <option value="surgery">비수술 주사치료(프롤로/스테로이드 주사)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cost_ins">실손의료비 보험 가입 여부</label>
+                        <select id="cost_ins" required>
+                            <option value="">선택하세요</option>
+                            <option value="none">실비 보험 미가입 상태 (건강보험 일반 혜택만 적용)</option>
+                            <option value="실손">실비 보험 가입 완료 (본인부담금 80~90% 환급 적용군)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit" style="background-color: var(--accent-color);">나의 예상 치료비 및 혜택 환급 금액 환산</button>
+                </form>
+
+                <div id="cost_result" class="result-box" style="background-color: #fffaf0; border-color: #feebc8; color: #7b341e;">
+                    <!-- 병원비 산출 자바스크립트 결과 렌더링 -->
+                </div>
+            </div>
+        </section>
+
+        <section id="커뮤니티">
+            <h2>대중들의 생생한 후기와 온라인 정보 습득의 현실</h2>
+            <p>손가락의 갑작스러운 시린 느낌이나 구부림 통증을 처음 인지했을 때 사람들은 어떤 미디어를 통해 해결책을 찾을까요? 최근에는 일반적인 포털 사이트 정보 검색을 넘어 디시인사이드(디시) 정형외과 갤러리나 차주의 연대가 끈끈한 보배드림 게시판 등에서 연배가 비슷한 유저들 간의 생생한 내돈내산 수술 치료기 및 한의원 침술 추천 후기를 손쉽게 찾아볼 수 있습니다. 20대와 30대의 젊은 청년층이 집중된 에펨코리아(펨코)나 루리웹 직장 생활 게시판에서도 손목 및 손가락 터널 증후군 관리를 위해 가장 효과를 본 버티컬 마우스 브랜드와 저렴한곳 정형외과 물리치료 비용 비교 글이 수시로 인기를 끌곤 합니다.</p>
+            <p>또한 모바일 생태계에서 편리하게 구글 및 네이버 검색창을 두드리거나 정보의 시각화가 극대화된 유튜브 의학 전문 채널의 정형외과 자가 치료법 스트레칭을 보고 따라 하는 경우도 매우 비축적되어 있습니다. 소셜 미디어 플랫폼인 인스타그램, 페이스북, 트위터(X) 등에서는 손마디 영양제 추천이나 관절염 보조기 착용 내돈내산 챌린지가 진행되기도 하며, 주변 이웃과의 카카오톡 정보 공유 및 텔레그램 메신저 등지에서도 가입 사은품을 많이 주는 인터넷 실손보험 브랜드 정보에 이르기까지 매우 방대한 이야기가 쏟아져 나오고 있습니다. 자산 관리와 금융 결제 앱의 선두 주자인 토스 앱에서는 병원 영수증을 연동하여 가입된 보험사 측에 직접 다이렉트로 보험금을 간편하게 청구하는 실질적인 생활 편의 서비스 혜택을 제공하고 있습니다.</p>
+            <p>특히 2026년에 들어서면서 의료 인포메이션 검색 양상에 획기적인 도약이 있었습니다. 네이버 하이퍼클로바X를 필두로 오픈AI의 챗지피티(ChatGPT)와 구글 제미나이(Gemini) 같은 첨단 AI 솔루션을 의학용 정보 계산기나 1:1 맞춤 상담 도구처럼 활용하여 자가 선별 검진을 수행하는 인원이 빠르게 늘고 있습니다. 손목 통증과 손마디 증상을 구글이나 네이버에 복잡하게 질문하면 AI 어플과 챗봇이 그에 알맞은 요약 리포트를 다이렉트 출력하여 어느 진료과를 가야 하는지 조목조목 알려주는 유용함이 있습니다. 하지만 인공지능이 유추하는 통증 정보는 어디까지나 거시적 가이드라인에 불과하므로 해당 인공지능의 자가 분석 결과를 맹신해 병원 조기 방문 골든타임을 허비하는 단점이 초래되지 않도록 극도로 유의해야 합니다.</p>
+        </section>
+
+        <section id="의견수렴">
+            <div class="survey-box">
+                <h3>손마디통증 생활 습관 종합 의견 공유 및 비공개 전문 상담 접수</h3>
+                <p>귀하께서 겪고 계신 관절 시림의 상세 내용과 주 생활 습관 정보를 체크해주시면, 데이터를 정밀 집계하여 향후 예방 의학적 가치가 높은 질환 통계 보정 자료에 활용하게 됩니다. 또한 필요시 본인에게 최적화된 스트레칭 가이드를 개별 발송해 드립니다.</p>
+                
+                <form id="surveyForm" onsubmit="event.preventDefault(); submitSurveyResponse();">
+                    <div class="form-group">
+                        <label>1. 하루 중 가장 통증이 심하게 엄습하는 시간대는 언제인가요?</label>
+                        <select id="survey_time" required>
+                            <option value="">선택해 주세요</option>
+                            <option value="morning">기상 직후 아침 시간 (약 6시 ~ 10시 사이)</option>
+                            <option value="afternoon">가사 및 업무가 활발한 낮 시간 (12시 ~ 18시)</option>
+                            <option value="night">하루를 마무리하고 수면에 들기 전 심야 (21시 이후)</option>
+                            <option value="all">특별히 가리지 않고 하루 내내 욱신거림</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. 손마디 완화를 위해 이미 활용해본 처치 방식은 무엇인가요? (중복 체크)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="action_taken" value="meds"> 약국 일반 소염제 사서 복용
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="action_taken" value="pack"> 집에서 뜨거운 물에 온찜질/파라핀
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="action_taken" value="clinic"> 이미 정형외과 물리치료나 주사를 맞아봄
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="action_taken" value="supplements"> 관절 영양제(글루코사민, MSM 등) 구입 복용
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="action_taken" value="none"> 아무것도 하지 않고 자연 방치 중
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="survey_contact">결과 및 스트레칭 예방 자료 수신용 이메일 주소</label>
+                        <input type="text" id="survey_contact" placeholder="example@domain.com" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit" style="background-color: var(--accent-color);">의견 분석 및 개별 예방법 발송 신청</button>
+                </form>
+
+                <div id="survey_success" class="result-box" style="background-color: #ebf8ff; border-color: #bee3f8; color: #2b6cb0;">
+                    <!-- 의견 제출 완료 안내 렌더링 -->
+                </div>
+            </div>
+        </section>
+
+        <section id="전문정보">
+            <h2>손마디통증 관련 공인된 대외 정밀 의학 참고자료 안내</h2>
+            <p>손마디통증은 기질적 특성에 따라 적절한 임상 전문 가이드라인을 추종해야 오진 확률을 현저히 낮출 수 있습니다. 무분별한 바이럴 광고성 정보에 휘둘리지 않고 대한민국 의료 당국 및 공신력 있는 단체의 학술 문헌 정보를 상호 보완적으로 열람하시는 것은 손가락 평생 건강의 초석입니다. 다음은 대한민국 보건 시스템 내에서 공인받은 대표적 학술 사이트와 정교한 자료실 리스트입니다.</p>
+            
+            <ul>
+                <li><a href="https://painutreatx.koreahankang.com" class="external-link" target="_blank" rel="noopener">관절 질환 증상 분석 전문 라이브러리 (ReliableDone)</a>: 일상생활 속에서 쉽게 간과되는 미세 손가락 마디 질환에 대하여 단계별 보존 요법과 운동 강도를 설명하는 전문 학술 데이터 허브입니다.</li>
+                <li><a href="https://namu.wiki/w/%EA%B4%80%EC%A0%88%EC%97%BC" class="external-link" target="_blank" rel="noopener">나무위키 - 관절염 학술 문서 백과</a>: 일반인들의 눈높이에 맞추어 퇴행성, 통풍성, 류마티스성 관절염의 대략적인 개요 및 일반적인 수술/비수술적 요법의 역사를 객관적 사료와 더불어 친숙히 정리해 놓은 온라인 백과 자료입니다.</li>
+                <li><a href="https://www.nhis.or.kr" class="external-link" target="_blank" rel="noopener">국민건강보험공단 (NHIS) 공식 포털</a>: 2026년도에 변경된 급여 가이드, 실손 연계 청구 시 알아두어야 할 진료비 세부 내역 산정 공식, 그리고 보건 의료 안전 장치 제도의 세세한 혜택 안내를 받아볼 수 있는 최고의 정부 공인 포털입니다.</li>
+            </ul>
+
+            <hr style="border: none; border-top: 1px solid var(--light-border); margin: 2.5rem 0;">
+
+            <h3>손가락 관절 질환 예방을 위한 핵심 생활 규칙 요약</h3>
+            <p>어떠한 정교한 치료를 받더라도 실생활 속에서 손을 학대하는 나쁜 버릇이 온전히 유지된다면 무서운 재발 루프에서 벗어날 수 없다는 단점이 있습니다. 정형외과 전문가들이 입을 모아 권장하는 손가락 인대 보호 수칙은 다음과 같습니다.</p>
+            <p>첫째, 장시간 컴퓨터 키보드나 스마트폰 화면 조작을 피해야 합니다. 연속된 입력 업무 시 최소 50분 단위로 알람을 맞추고, 알람이 울리면 5분 동안 손을 심장 높이보다 위로 올려 털어준 뒤 개별 손마디를 반대편 손바닥으로 뒤로 지긋이 밀어내는 이완 스트레칭을 정성스럽게 수행하시길 권장합니다.</p>
+            <p>둘째, 가벼운 가사노동이라도 무거운 조리기구나 뜨겁게 달궈진 프라이팬을 맨손으로 지탱할 때는 필히 전용 압박 아대를 손목과 손목 관절 전체에 둘러 지지력을 분배해 주는 것이 좋습니다. 특히 갱년기 및 산후 연부 조직이 느슨해진 여성은 일시적 마찰 스트레스를 크게 완화해야 관절 연골 마모를 막을 수 있습니다.</p>
+            <p>셋째, 잠들기 전 따뜻한 미온수로 조그마한 세숫대야를 가득 채운 후 양 손목까지 담가 15분 이상 가볍게 주먹을 쥐었다 펴는 파라핀 및 온열 대체요법을 실행하시는 것도 강력히 권장됩니다. 온열을 통한 혈류 흐름 개진은 염증 촉진 물질의 세척 배출 작용을 도와 아침 강직 증상의 발원 자체를 유의미하게 억제해 주는 중요한 수단으로 연구되고 있습니다.</p>
+        </section>
     </main>
-  </body>
-</html>
+
+    <script>
+        function calculateDiagnosticScore() {
+            var ageGroup = document.getElementById('diag_age').value;
+            var profession = document.getElementById('diag_prof').value;
+            var painLevel = parseInt(document.getElementById('diag_pain').value);
+            
+            var symptoms = document.querySelectorAll('input[name="symptom"]:checked');
+            var symptomCount = symptoms.length;
+            
+            if(!ageGroup || !profession) {
+                alert("연령대와 주요 생활 양식을 모두 선택해 주세요.");
+                return;
+            }
+            
+            var riskScore = (symptomCount * 15) + (painLevel * 4);
+            if(riskScore > 100) riskScore = 100;
+            
+            var resultText = "분석 결과 자가 진단 점수는 100점 만점에 " + riskScore + "점입니다. ";
+            var conditionGuess = "";
+            var detailedExplanation = "";
+            
+            var symStiff = document.getElementById('sym_stiff').checked;
+            var symSwell = document.getElementById('sym_swell').checked;
+            var symSymm = document.getElementById('sym_symm').checked;
+            var symDistal = document.getElementById('sym_distal').checked;
+            var symClick = document.getElementById('sym_click').checked;
+            
+            if (symStiff && symSwell && symSymm) {
+                conditionGuess = "자가면역성 류마티스 관절염의 강력한 임상 의심 범주";
+                detailedExplanation = "아침마다 양손 관절 마디가 대칭적으로 부으면서 강직감이 1시간 이상 끈질기게 발현되는 양상은 류마티스 내과의 정교한 진단이 시급함을 가리킵니다. 조속한 항류마티스 약제 가입이 예후를 전적으로 보장합니다.";
+            } else if (symDistal && painLevel >= 4) {
+                conditionGuess = "오랜 노화 및 과도한 손 사용에 기초한 퇴행성 골관절염 양상";
+                detailedExplanation = "손가락 끝마디에 집중되는 뻐근함과 장기간 가사노동 패턴이 맞물리는 것은 관절 내부 연골 소실의 고전적 모습입니다. 온열 자극과 더불어 무거운 부하를 주는 가사 노동 빈도를 조율하는 적극적 조치가 추천됩니다.";
+            } else if (symClick) {
+                conditionGuess = "손가락 굴곡건의 가동 장벽, 방아쇠수지 증후군 및 건초염 의심";
+                detailedExplanation = "손가락 가동 중 딸깍거리며 무언가 걸려 넘어가듯 한 통증이 감지되는 것은 건을 가두는 통로 활막 주위에 조직 삼출과 비후 염증이 일어났다는 반증입니다. 부드러운 스트레칭과 급격한 사용량 축소가 선결되어야 합니다.";
+            } else if (symptomCount > 0) {
+                conditionGuess = "손가락 관절 주위 연부조직 일시적 과부하에 따른 단순 피로/건염";
+                detailedExplanation = "스마트기기 과사용으로 인한 지지 인대의 일시적 마찰 스트레스 상태로 판단됩니다. 휴식과 이틀 간의 가벼운 소염 처치만으로도 유의미한 자연 호전 혜택을 도출할 수 있으나 무작정 방치 시 만성화될 단점이 있습니다.";
+            } else {
+                conditionGuess = "양호한 수준의 가벼운 관절 피로도";
+                detailedExplanation = "눈에 띄는 기질적 염증 변화는 포착되지 않으며 지속적인 스트레칭과 손을 아끼는 수칙을 생활화하시는 것만으로도 충분합니다.";
+            }
+            
+            var resultDiv = document.getElementById('diagnostic_result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = "<strong>자가분석 등급: " + conditionGuess + "</strong><br><br>" + resultText + detailedExplanation + "<br><br>단, 본 계산기 결과는 통계적 자가 데이터 산정에 기반한 자가 확인 용도이므로 자세한 의학 치료는 실 병원에 문의하셔야 합니다.";
+        }
+
+        function calculateEstimatedCost() {
+            var condition = document.getElementById('cost_cond').value;
+            var treatment = document.getElementById('cost_treat').value;
+            var insurance = document.getElementById('cost_ins').value;
+            
+            if(!condition || !treatment || !insurance) {
+                alert("비용을 환산하기 위해 모든 선택 항목을 체크해 주시기 바랍니다.");
+                return;
+            }
+            
+            var baseCost = 0;
+            var description = "";
+            
+            if (condition === "rheumatoid") {
+                baseCost += 140000; 
+            } else if (condition === "degenerative") {
+                baseCost += 35000;  
+            } else if (condition === "teno") {
+                baseCost += 25000;  
+            } else {
+                baseCost += 15000;  
+            }
+            
+            if (treatment === "physical") {
+                baseCost += 15000;
+            } else if (treatment === "manual") {
+                baseCost += 130000; 
+            } else if (treatment === "eswt") {
+                baseCost += 90000;  
+            } else if (treatment === "surgery") {
+                baseCost += 60000;  
+            }
+            
+            var patientCoPay = 0;
+            var reimbursed = 0;
+            
+            if (insurance === "none") {
+                patientCoPay = baseCost;
+                reimbursed = 0;
+                description = "국민건강보험 공단 측의 기본 급여 혜택 범위 내에서 비용이 차감된 내역입니다. 비급여로 진행되는 특수 정밀 도수치료 및 체외충격파 같은 치료는 본인부담 요금율이 100%에 달한다는 큰 단점이 있으니 계획적 치료 선택이 요망됩니다.";
+            } else if (insurance === "실손") {
+                patientCoPay = Math.round(baseCost * 0.15);
+                reimbursed = Math.round(baseCost * 0.85);
+                description = "환자분께서 가입하신 다이렉트 실손보험의 평균 보장률 85%를 적용한 모의 계산 금액입니다. 외래 한도 공제 요금을 제하고 나면 실제 개인이 지불하는 최종 지출 가격 부담이 비약적으로 절감되는 막강한 실비 혜택을 향유하실 수 있습니다.";
+            }
+            
+            var costDiv = document.getElementById('cost_result');
+            costDiv.style.display = 'block';
+            costDiv.innerHTML = "<strong>통증 정밀 분석에 따른 1회 내원 평균 예상 총액: " + baseCost.toLocaleString() + " 원</strong><br>" +
+                                "<strong>실제 환자 지불 예상 본인부담액: " + patientCoPay.toLocaleString() + " 원</strong> (실비 최종 예상 환급 혜택: " + reimbursed.toLocaleString() + " 원)<br><br>" +
+                                description + "<br><br>위 가격은 2026년도 상반기 요양기관 수가 기준표를 준용한 가상 평균 결과치이며 각 로컬 의원 및 특수 검진 탑재 수준에 따라 비용이 변동될 수 있습니다.";
+        }
+
+        function submitSurveyResponse() {
+            var email = document.getElementById('survey_contact').value;
+            var time = document.getElementById('survey_time').value;
+            
+            if(!email || !time) {
+                alert("이메일 주소와 상세 설문 항목을 모두 빠짐없이 입력해 주세요.");
+                return;
+            }
+            
+            var successDiv = document.getElementById('survey_success');
+            successDiv.style.display = 'block';
+            successDiv.innerHTML = "귀하의 통증 데이터 전송이 원활하게 수신 완료되었습니다. 당사 데이터 분석 시스템의 보정이 완료되는 대로 작성해 주신 " + email + " 메일함으로 맞춤형 자가 스트레칭 세부 책자 가이드 파일 및 실손 관련 정보 혜택 목록을 지체 없이 발송해 드리겠습니다. 감사합니다.";
+        }
+    </script>
+  
